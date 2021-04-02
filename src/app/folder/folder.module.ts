@@ -8,12 +8,16 @@ import { FolderPageRoutingModule } from './folder-routing.module';
 
 import { FolderPage } from './folder.page';
 
+import { KatexModule } from 'ng-katex';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    FolderPageRoutingModule
+    FolderPageRoutingModule,
+    KatexModule
+
   ],
   declarations: [FolderPage]
 })

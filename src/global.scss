@@ -24,3 +24,12 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+@import '~katex/dist/katex.css';
+
+
+.katex {
+    font: normal 1.21em KaTeX_Fraktur, Times New Roman, serif;
+    line-height: 1.2;
+    text-indent: 0;
+    text-rendering: auto;
+}

@@ -1,21 +1,68 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>{{ folder }}</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-menu-button class="menu-button"></ion-menu-button>
+<ion-badge size="sm" class="root-badge label-mode">{{ folder }}</ion-badge>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">{{ folder }}</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div class="screen">
+    <ng-katex [equation]="equation"></ng-katex>
+  </div>
+  <div class="controls">
+    <div class="mods">
+      <ion-grid>
+        <ion-row class="full-width control-height">
+          <ion-col class="memory" (click)="memory('mc')">M1</ion-col>
+          <ion-col class="memory" (click)="memory('mr')">M2</ion-col>
+          <ion-col class="memory" (click)="memory('m+')">M3</ion-col>
+          <ion-col class="memory" (click)="memory('m')">M4</ion-col>
+          <ion-col class="memory" (click)="operation('CE')">CE</ion-col>
+          <ion-col class="memory" (click)="operation('DEL')">DEL</ion-col>
+        </ion-row>
+        <ion-row class="full-width numb-heigt">
+          <ion-col class="number" (click)="operation('^')"><ng-katex equation="\ln"></ng-katex></ion-col>
+          <ion-col class="number" (click)="operation('^')"><ng-katex equation="x^{10}"></ng-katex></ion-col>
+          <ion-col class="number" (click)="operation('√')"><ng-katex equation="\sqrt{}"></ng-katex></ion-col>
+          <ion-col class="number" (click)="operation('^')">x^2</ion-col>
+          <ion-col class="number" (click)="operation('/')">÷</ion-col>
+        </ion-row>
+        <ion-row class="full-width numb-heigt">
+          <ion-col class="number" (click)="operation('^')">log</ion-col>
+          <ion-col class="number" (click)="operation('^')">e^x</ion-col>
+          <ion-col class="number" (click)="operation('√')">√</ion-col>
+          <ion-col class="number" (click)="operation('^')">x^2</ion-col>
+          <ion-col class="number" (click)="operation('/')">÷</ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div class="numbers">
+      <ion-grid>
+        <ion-row class="full-width numb-heigt">
+          <ion-col class="number" (click)="operation('(')">(</ion-col>
+          <ion-col class="number" (click)="numbers(7)">7</ion-col>
+          <ion-col class="number" (click)="numbers(8)">8</ion-col>
+          <ion-col class="number" (click)="numbers(9)">9</ion-col>
+          <ion-col class="number control" (click)="operation('*')">x</ion-col>
+        </ion-row>
+        <ion-row class="full-width numb-heigt">
+          <ion-col class="number" (click)="operation(')')">)</ion-col>
+          <ion-col class="number" (click)="numbers(4)">4</ion-col>
+          <ion-col class="number" (click)="numbers(5)">5</ion-col>
+          <ion-col class="number" (click)="numbers(6)">6</ion-col>
+          <ion-col class="number control" (click)="operation('-')">-</ion-col>
+        </ion-row>
+        <ion-row class="full-width numb-heigt">
+          <ion-col class="number" (click)="operation(')')"><-</ion-col>
+          <ion-col class="number" (click)="numbers(1)">1</ion-col>
+          <ion-col class="number" (click)="numbers(2)">2</ion-col>
+          <ion-col class="number" (click)="numbers(3)">3</ion-col>
+          <ion-col class="number control" (click)="operation('+')">+</ion-col>
+        </ion-row>
+        <ion-row class="full-width numb-heigt">
+          <ion-col class="number" (click)="operation(')')">-></ion-col>
+          <ion-col class="number" (click)="operation('+/-')">+/-</ion-col>
+          <ion-col class="number" (click)="numbers(0)">0</ion-col>
+          <ion-col class="number" (click)="operation('.')">.</ion-col>
+          <ion-col class="number control" (click)="result()">=</ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
   </div>
 </ion-content>

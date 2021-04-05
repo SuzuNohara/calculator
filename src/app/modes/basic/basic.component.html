@@ -1,0 +1,176 @@
+<ion-menu-button class="menu-button"></ion-menu-button>
+<ion-badge size="sm" color="one" class="root-badge label-mode">{{ folder }}</ion-badge>
+
+<ion-content [fullscreen]="true" class="darkscreen">
+  <div class="darkscreen">
+    <div class="screen">
+      <!--<ng-katex [equation]="equation"></ng-katex>-->
+      <div class="screen-contents">
+        {{ cont }}
+      </div>
+      <div class="results">
+        {{ result }}
+      </div>
+    </div>
+    <div class="controls">
+      <div class="mods">
+        <ion-grid>
+          <!--<ion-row class="full-width control-height">
+            <ion-col>
+              <ion-button class="mem-button" color="one" (click)="saveAsImage()">
+                <ion-icon slot="icon-only" name="camera-outline"></ion-icon>
+              </ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button class="mem-button" color="one" (click)="expandMode()">
+                <ion-icon slot="icon-only" name="expand-outline"></ion-icon>
+              </ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button class="mem-button" color="one" (click)="history()">
+                <ion-icon name="list-outline"></ion-icon>
+              </ion-button>
+            </ion-col>
+            <ion-col></ion-col>
+            <ion-col></ion-col>
+            <ion-col></ion-col>
+          </ion-row>-->
+          <ion-row class="full-width control-heigt">
+            <ion-col>
+              <ion-button class="calc-button" expand="full" color="two" (click)="shift()"><small><small><ng-katex equation="inv"></ng-katex></small></small></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button *ngIf="!shiftB" class="calc-button" expand="full" color="two" (click)="operation('sin(')" ><small><small><ng-katex equation="sin"></ng-katex></small></small></ion-button>
+              <ion-button *ngIf="shiftB" class="calc-button" expand="full" color="two" (click)="operation('csc(')" ><small><small><ng-katex equation="csc"></ng-katex></small></small></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button *ngIf="!shiftB" class="calc-button" expand="full" color="two" (click)="operation('cos(')" ><small><small><ng-katex equation="cos"></ng-katex></small></small></ion-button>
+              <ion-button *ngIf="shiftB" class="calc-button" expand="full" color="two" (click)="operation('sec(')" ><small><small><ng-katex equation="sec"></ng-katex></small></small></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button *ngIf="!shiftB" class="calc-button" expand="full" color="two" (click)="operation('tan(')" ><small><small><ng-katex equation="tan"></ng-katex></small></small></ion-button>
+              <ion-button *ngIf="shiftB" class="calc-button" expand="full" color="two" (click)="operation('ctan(')" ><small><small><ng-katex equation="ctan"></ng-katex></small></small></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button *ngIf="!units" class="calc-button" expand="full" color="two" (click)="unitsC()" disabled="true"><small><small><ng-katex equation="deg"></ng-katex></small></small></ion-button>
+              <ion-button *ngIf="units" class="calc-button" expand="full" color="two" (click)="unitsC()" ><small><small><ng-katex equation="rad"></ng-katex></small></small></ion-button>
+            </ion-col>
+          </ion-row>
+          <ion-row class="full-width control-heigt">
+            <ion-col>
+              <ion-button class="calc-button" expand="full" color="two" (click)="operation('%')" ><ng-katex equation="\%"></ng-katex></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button class="calc-button" expand="full" color="two" (click)="operation('ln(')" ><small><small><ng-katex equation="ln"></ng-katex></small></small></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button class="calc-button" expand="full" color="two" (click)="operation('log(')" ><small><small><ng-katex equation="log"></ng-katex></small></small></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button class="calc-button" expand="full" color="two" (click)="operation('√(')" ><ng-katex equation="\sqrt{}"></ng-katex></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button class="calc-button" expand="full" color="two" (click)="operation('^(')" ><small><ng-katex equation="x^{y}"></ng-katex></small></ion-button>
+            </ion-col>
+          </ion-row>
+          <ion-row class="full-width control-heigt">
+            <ion-col>
+              <ion-button class="calc-button" expand="full" color="two" (click)="operation('pi')" ><small><ng-katex equation="\pi"></ng-katex></small></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button class="calc-button" expand="full" color="two" (click)="operation('e')" ><small><ng-katex equation="e"></ng-katex></small></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button class="calc-button" expand="full" color="two" (click)="operation('(')" ><ng-katex equation="("></ng-katex></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button class="num-button" expand="full" color="two" (click)="operation(')')" ><ng-katex equation=")"></ng-katex></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button class="num-button" expand="full" color="two" (click)="operation('!')" ><ng-katex equation="!"></ng-katex></ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+      <div class="numbers">
+        <ion-grid>
+          <ion-row class="full-width numb-heigt">
+            <ion-col>
+              <ion-button class="num-button" expand="full" color="one" (click)="operation('7')" ><ng-katex equation="7"></ng-katex></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button class="num-button" expand="full" color="one" (click)="operation('8')" ><ng-katex equation="8"></ng-katex></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button class="num-button" expand="full" color="one" (click)="operation('9')" ><ng-katex equation="9"></ng-katex></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button class="num-button" expand="full" color="two" (click)="operation('/')" ><ng-katex equation="÷"></ng-katex></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button class="calc-button" expand="full" color="two" (click)="delete()">
+                <ion-icon name="backspace-outline"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+          <ion-row class="full-width numb-heigt">
+            <ion-col>
+              <ion-button class="num-button" expand="full" color="one" (click)="operation('4')" ><ng-katex equation="4"></ng-katex></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button class="num-button" expand="full" color="one" (click)="operation('5')" ><ng-katex equation="5"></ng-katex></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button class="num-button" expand="full" color="one" (click)="operation('6')" ><ng-katex equation="6"></ng-katex></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button class="num-button" expand="full" color="two" (click)="operation('*')" ><ng-katex equation="*"></ng-katex></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button class="calc-button" expand="full" color="two" (click)="cancel()">
+                <ion-icon name="close-circle-outline"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+          <ion-row class="full-width numb-heigt">
+            <ion-col>
+              <ion-button class="num-button" expand="full" color="one" (click)="operation('1')" ><ng-katex equation="1"></ng-katex></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button class="num-button" expand="full" color="one" (click)="operation('2')" ><ng-katex equation="2"></ng-katex></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button class="num-button" expand="full" color="one" (click)="operation('3')" ><ng-katex equation="3"></ng-katex></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button class="num-button" expand="full" color="two" (click)="operation('-')" ><ng-katex equation="-"></ng-katex></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button class="num-button" expand="full" color="two" (click)="previous()" ><small><small><small>
+                <!--<ion-icon name="return-up-back-outline"></ion-icon>-->
+                <ng-katex equation="ans"></ng-katex>
+              </small></small></small></ion-button>
+            </ion-col>
+          </ion-row>
+          <ion-row class="full-width numb-heigt">
+            <ion-col>
+              <ion-button class="calc-button" expand="full" color="one" (click)="operation('*10^')" ><small><ng-katex equation="10^{x}"></ng-katex></small></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button class="num-button" expand="full" color="one" (click)="operation('0')" ><ng-katex equation="0"></ng-katex></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button class="num-button" expand="full" color="one" (click)="operation('.')" ><ng-katex equation="."></ng-katex></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button class="num-button" expand="full" color="two" (click)="operation('+')" ><ng-katex equation="+"></ng-katex></ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button class="num-button" expand="full" color="two" (click)="solve()" ><ng-katex equation="="></ng-katex></ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+  </div>
+</ion-content>

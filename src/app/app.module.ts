@@ -8,10 +8,16 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { KatexModule } from 'ng-katex';
+import { BasicComponent } from './modes/basic/basic.component';
+import { CientificComponent } from './modes/cientific/cientific.component';
+import { ProgrammerComponent } from './modes/programmer/programmer.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BasicComponent,
+    CientificComponent,
+    ProgrammerComponent
   ],
   entryComponents: [],
   imports: [

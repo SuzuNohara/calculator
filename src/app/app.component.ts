@@ -9,9 +9,9 @@ export class AppComponent {
 
   public appPages = [
     { title: 'Basic', url: '/basic', icon: 'calculator' },
-    /*{ title: 'Cientific', url: '/cientific', icon: 'flask' },
+    //{ title: 'Cientific', url: '/cientific', icon: 'flask' },
     { title: 'Programmer', url: '/programmer', icon: 'code-working' },
-    { title: 'Archived', url: '/folder/Archived', icon: 'archive' },
+    /*{ title: 'Archived', url: '/folder/Archived', icon: 'archive' },
     { title: 'Trash', url: '/folder/Trash', icon: 'trash' },
     { title: 'Spam', url: '/folder/Spam', icon: 'warning' },*/
   ];

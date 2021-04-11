@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BrowserTransferStateModule } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
-import { create, all } from 'mathjs';
-import { KatexModule } from 'ng-katex';
+import { CalculatorService } from '../../services/calculator.service';
 
 @Component({
   selector: 'app-basic',
@@ -21,16 +18,8 @@ export class BasicComponent implements OnInit {
   public res: string;
   public folder: string;
   public cont: string;
-  private math = create(all, {
-    epsilon: 1e-12,
-    matrix: 'Matrix',
-    number: 'number',
-    precision: 64,
-    predictable: false,
-    randomSeed: null
-  });
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private calc: CalculatorService) { }
 
   ngOnInit() {
     this.folder = 'Basic';
@@ -70,7 +59,7 @@ export class BasicComponent implements OnInit {
   public solve(){
     this.activeOper = true;
     let temp = this.cont.replace ('√', 'sqrt');
-    this.result = this.math.evaluate(temp);
+    this.result = this.calc.solve(temp);
     this.previus = this.result + '';
   }
 

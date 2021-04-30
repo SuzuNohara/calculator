@@ -5,14 +5,29 @@
   <div class="darkscreen">
     <div class="screen">
       <div class="screen-contents">
-        <div class="operations">
+<!--        <div class="operations">
           {{ cont }}
-        </div>
+        </div>-->
         <div class="modes">
-          <div class="mode hex" (click)="changeMode(1)" [ngClass]="{'mod-selected': mode === 1}">Hex: {{ hex }}</div>
-          <div class="mode dec" (click)="changeMode(2)" [ngClass]="{'mod-selected': mode === 2}">Dec: {{ dec }}</div>
-          <div class="mode oct" (click)="changeMode(3)" [ngClass]="{'mod-selected': mode === 3}">Oct: {{ oct }}</div>
-          <div class="mode bin" (click)="changeMode(4)" [ngClass]="{'mod-selected': mode === 4}">{{ 'Bin: ' + bin }}</div>
+          <div class="mode-hex" (click)="changeMode(1)" [ngClass]="{'mod-selected': mode === 1}">
+            <ion-chip class="title-chip" outline="true" color="secondary" size="sm">
+              <ion-label>Hexadecimal</ion-label>
+            </ion-chip>
+            {{ hex }}
+          </div>
+          <div class="mode-dec" (click)="changeMode(2)" [ngClass]="{'mod-selected': mode === 2}">
+            <ion-chip class="title-chip" outline="true" color="secondary" size="sm">
+              <ion-label>Decimal</ion-label>
+            </ion-chip>
+            {{ dec }}
+          </div>
+          <!--<div class="mode oct" (click)="changeMode(3)" [ngClass]="{'mod-selected': mode === 3}">Oct: {{ oct }}</div>-->
+          <div class="modebin bin" (click)="changeMode(4)" [ngClass]="{'mod-selected': mode === 4}">
+            <ion-chip class="title-chip" outline="true" color="secondary" size="sm">
+              <ion-label>Binary</ion-label>
+            </ion-chip>
+            {{ bin }}
+          </div>
         </div>
       </div>
       <div class="results">
@@ -166,7 +181,7 @@
               <ion-button class="num-button" expand="full" color="one" (click)="operation('0')" ><ng-katex equation="0"></ng-katex></ion-button>
             </ion-col>
             <ion-col>
-              <ion-button class="num-button" expand="full" color="one" (click)="operation('00')" ><small><ng-katex equation="00"></ng-katex></small></ion-button>
+              <ion-button class="num-button" expand="full" color="one" (click)="operation('.')" ><ng-katex equation="."></ng-katex></ion-button>
             </ion-col>
             <ion-col>
               <ion-button class="num-button" expand="full" color="two" (click)="operation('+')" ><small><ng-katex equation="+"></ng-katex></small></ion-button>

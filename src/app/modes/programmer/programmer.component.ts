@@ -70,7 +70,6 @@ export class ProgrammerComponent implements OnInit {
 
   public solve(){
     this.activeOper = true;
-    this.genBase();
     let ress = this.calc.solve(this.dec);
     if(this.mode == 1){
       this.result = this.calc.hex(ress, 10);
@@ -87,16 +86,6 @@ export class ProgrammerComponent implements OnInit {
   public delete(){
     this.cont = this.cont.substr(0, this.cont.length - 1);
     this.operation('');
-    this.genBase();
-  }
-
-  private genBase(){
-    let sections: string[] = this.calc.sectionate(this.cont);
-    for(let section of sections){
-      if(this.calc.numbers(section)){
-
-      }
-    }
   }
 
   public cancel(){

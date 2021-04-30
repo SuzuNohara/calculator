@@ -32,7 +32,7 @@ export class CalculatorService {
     }else if(base == 16){
       res = parseInt(num, 16);
     }else{
-      res = parseInt(num);
+      res = parseFloat(num);
     }
     return res + '';
   }
@@ -46,7 +46,7 @@ export class CalculatorService {
     }else if(base == 16){
       return num;
     }else{
-      res = parseInt(num, 10);
+      res = parseFloat(num);
     }
     return res.toString(16).toUpperCase();
   }
@@ -56,7 +56,7 @@ export class CalculatorService {
     if(base == 2){
       res = parseInt(num, 2);
     }else if(base == 10){
-      res = parseInt(num, 10);
+      res = parseFloat(num);
     }else if(base == 8){
       return num;
     }else{
@@ -70,7 +70,7 @@ export class CalculatorService {
     if(base == 16){
       res = parseInt(num, 16);
     }else if(base == 10){
-      res = parseInt(num, 10);
+      res = parseFloat(num);
     }else if(base == 2){
       return num;
     }else{

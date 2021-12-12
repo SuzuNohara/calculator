@@ -1,0 +1,133 @@
+<ion-menu-button class="menu-button"></ion-menu-button>
+<ion-badge size="sm" color="one" class="root-badge label-mode">{{ account.name }}</ion-badge>
+
+<ion-content>
+
+  <ion-card *ngIf="creating">
+    <ion-card-header>
+      <ion-card-title>
+        <ion-input placeholder="Name" [(ngModel)]="product.name"></ion-input>
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-row>
+        <ion-col>
+          <h2>Variants</h2>
+          <div class="center"><ion-button size="small"><ion-icon name="add"></ion-icon></ion-button></div>
+          <ion-list>
+            <ion-radio-group>
+              <ion-item *ngFor="let variant of product.variants; let i = index">
+                <ion-label><ion-input placeholder="name" [(ngModel)]="product.variants[i].name"></ion-input></ion-label>
+                <ion-input slot="start" placeholder="price" [(ngModel)]="product.variants[i].price"></ion-input>
+              </ion-item>
+            </ion-radio-group>
+          </ion-list>
+        </ion-col>
+        <ion-col>
+          <h3>Complements</h3>
+          <ion-list>
+            <ion-item *ngFor="let variant of product.variants; let i = index">
+              <ion-label><ion-input placeholder="name" [(ngModel)]="product.variants[i].name"></ion-input></ion-label>
+              <ion-input slot="start" placeholder="price" [(ngModel)]="product.variants[i].price"></ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-row>
+    <ion-col [size]="6">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>{{ account.name }}</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-list>
+            <ion-radio-group>
+              <ion-item>
+                <ion-label>radio</ion-label>
+                <ion-radio slot="start"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>radio</ion-label>
+                <ion-radio slot="start"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>radio</ion-label>
+                <ion-radio slot="start"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>radio</ion-label>
+                <ion-radio slot="start"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+
+    <ion-col [size]="6">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>something</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-list>
+            <ion-item>
+              <ion-label>checkbox</ion-label>
+              <ion-checkbox slot="start"></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>checkbox</ion-label>
+              <ion-checkbox slot="start"></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>checkbox</ion-label>
+              <ion-checkbox slot="start"></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label>checkbox</ion-label>
+              <ion-checkbox slot="start"></ion-checkbox>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+
+    <ion-col [size]="6">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>something</ion-card-title>
+        </ion-card-header>
+          <ion-row>
+            <ion-col class="center">
+              <ion-button><ion-icon name="remove"></ion-icon></ion-button>
+            </ion-col>
+            <ion-col class="center">
+              <ion-button><ion-icon name="add"></ion-icon></ion-button>
+            </ion-col>
+          </ion-row>
+        <ion-card-content>
+
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button>
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+<ion-fab vertical="bottom" horizontal="start" slot="fixed">
+  <ion-fab-button>
+    <ion-icon name="cog"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

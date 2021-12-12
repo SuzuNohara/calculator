@@ -12,19 +12,28 @@ import { BasicComponent } from './modes/basic/basic.component';
 import { CientificComponent } from './modes/cientific/cientific.component';
 import { ProgrammerComponent } from './modes/programmer/programmer.component';
 
+import { IonicStorageModule } from '@ionic/storage-angular';
+import { FormsModule } from '@angular/forms';
+import { AccountComponent } from './modes/account/account.component';
+import { AccalcComponent } from './modes/account/accalc/accalc.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     BasicComponent,
     CientificComponent,
-    ProgrammerComponent
+    ProgrammerComponent,
+    AccountComponent,
+    AccalcComponent
   ],
   entryComponents: [],
   imports: [
-    BrowserModule, 
-    IonicModule.forRoot(), 
+    BrowserModule,
+    IonicModule.forRoot(),
     AppRoutingModule,
-    KatexModule
+    KatexModule,
+    IonicStorageModule.forRoot(),
+    FormsModule
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
